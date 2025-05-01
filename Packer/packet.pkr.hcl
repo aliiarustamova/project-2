@@ -7,14 +7,14 @@ packer {
   }
 }
 
-source "amazon-ebs" "ubuntu" {
+source "amazon-ebs" "amazon" {
   ami_name      = "wordpress {{ timestamp }}"
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami = "ami-0e449927258d45bc4"
   ssh_username = "ec2-user"
   run_tags = { 
-    Name = "intance"
+    Name = "instance"
   }
 #   ami_regions = [
 #     "us-east-1",
@@ -23,11 +23,11 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name    = "learn-packer"
+  name    = "packer"
   sources = [
-    "source.amazon-ebs.ubuntu"
+    "source.amazon-ebs.amazon"
   ]
   provisioner "shell" {
-    script = "hello.sh"
+    script = "apache.sh"
   }
 }
