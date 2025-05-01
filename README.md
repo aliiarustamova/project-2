@@ -1,3 +1,3 @@
 # project-2
 
-#Using Packer to create Wordpress image
+Deploying WordPress on AWS with Packer & Terraform
